@@ -19,7 +19,7 @@ REDIRECT_URI=http://localhost:3000/oauth
 6. Open a browser and go to http://localhost:3000/login and log in with your twitch account.
 
 You'll need to set up a hotkey application in your system. Karabiner-Elements is pretty good for Mac, I use AutoHotKey for PC.
-The repo has a .ahk file that will register Numpad8 to make a call to the `run-scripts.js` script in this repo, passing in the
+The repo has a .ahk file that will register NumpadEnter to make a call to the `run-scripts.js` script in this repo, passing in the
 `marker` parameter, which will make a call to an endpoint that creates a stream marker. All indications of a successful call
 should be in the window running the `index.js` script above.
 
