@@ -1,0 +1,26 @@
+# DIY Stream Deck
+
+Do you want the capabilities of a standard stream deck without having to pay an insane amount? I've built my own streamdeck using a cheap USB numpad from Amazon and some tinkering around.
+
+The current code base has a nodejs project that runs an express server and awaits the endpoints being hit to commit certain actions.
+
+To get started, you need to do the following:
+
+1. clone the project
+2. `npm install`
+3. go to https://dev.twitch.tv/console/apps and create a new Developer Application. Your OAuth Redirect URL should be `http://localhost:3000/oauth`. Make sure to copy the Client ID and Client Secret to a safe place.
+4. create a `.env` file with the following:
+```
+TWITCH_CLIENT_ID=<Client ID from your twitch developer application>
+TWITCH_SECRET=<Client Secret from your twitch developer application>
+REDIRECT_URI=http://localhost:3000/oauth
+```
+5. Run `node .\index.js`
+6. Open a browser and go to http://localhost:3000/login and log in with your twitch account.
+
+You'll need to set up a hotkey application in your system. Karabiner-Elements is pretty good for Mac, I use AutoHotKey for PC.
+The repo has a .ahk file that will register Numpad8 to make a call to the `run-scripts.js` script in this repo, passing in the
+`marker` parameter, which will make a call to an endpoint that creates a stream marker. All indications of a successful call
+should be in the window running the `index.js` script above.
+
+More to come.
